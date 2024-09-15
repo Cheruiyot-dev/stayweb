@@ -1,0 +1,241 @@
+{% extends "guest/base.html" %} {% block title %}Haven Stay - Home{% endblock %}
+{% block content %}
+
+<section
+  class="site-hero overlay page-inside"
+  style="background-image: url({{ url_for('static', filename='img/deluxe1.jpg') }})"
+>
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center">
+        <h1 class="heading" data-aos="fade-up">Deluxe Room</h1>
+        <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
+          Experience luxury and comfort
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END section -->
+
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5" data-aos="fade-up">
+        <img
+          src="{{ url_for('static', filename='img/deluxe7.jpeg') }}"
+          alt="Deluxe Room"
+          class="img-fluid rounded"
+        />
+      </div>
+      <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="mb-4">Deluxe Room</h2>
+        <p>
+          Indulge in the perfect blend of comfort and elegance in our spacious
+          Deluxe Room. Designed for both leisure and business travelers, this
+          room offers a tranquil retreat with stunning views and modern
+          amenities.
+        </p>
+        <ul class="list-unstyled mb-5">
+          <li><strong>Size:</strong> 40 m²</li>
+          <li><strong>Occupancy:</strong> 2 Adults</li>
+          <li><strong>Bed Type:</strong> King-size or Twin</li>
+          <li><strong>View:</strong> City or Garden</li>
+        </ul>
+        <p><a href="#" class="btn btn-primary">Book Now</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- New Room Picture Gallery Section -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Room Gallery</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Deluxe Room - Bedroom"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe6.jpeg') }}"
+            alt="Deluxe Room - Bedroom"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Deluxe Room - Bathroom"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe3.jpeg') }}"
+            alt="Deluxe Room - Bathroom"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Deluxe Room - Living Area"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe2.jpeg') }}"
+            alt="Deluxe Room - Living Area"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Deluxe Room - Work Desk"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe3.jpeg') }}"
+            alt="Deluxe Room - Work Desk"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Deluxe Room - Room Service"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe4.jpeg') }}"
+            alt="Deluxe Room - Room Service"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Deluxe Room - View"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe5.jpeg') }}"
+            alt="Deluxe Room - View"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of Room Picture Gallery Section -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Room Features</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-wifi mr-2"></i> High-Speed Wi-Fi
+            </h3>
+            <p>
+              Stay connected with complimentary high-speed internet access
+              throughout your stay.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-television mr-2"></i> Smart TV
+            </h3>
+            <p>
+              Enjoy your favorite shows and movies on our 55-inch smart TV with
+              streaming capabilities.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-bath mr-2"></i> Luxury Bathroom
+            </h3>
+            <p>
+              Pamper yourself in our spacious bathroom with a rain shower and
+              premium toiletries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Additional Services</h2>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> 24/7 room service
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Daily housekeeping
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Laundry and dry
+            cleaning
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> In-room spa treatments
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Concierge services
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="owl-carousel slide-one-item">
+          <img
+            src="/api/placeholder/500/375"
+            alt="Room Service"
+            class="img-fluid rounded"
+          />
+          <img
+            src="/api/placeholder/500/375"
+            alt="Spa Treatment"
+            class="img-fluid rounded"
+          />
+          <img
+            src="/api/placeholder/500/375"
+            alt="Concierge Service"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

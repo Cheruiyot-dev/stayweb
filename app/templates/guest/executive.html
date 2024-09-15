@@ -1,0 +1,273 @@
+{% extends "guest/base.html" %} {% block title %}Haven Stay - Executive Rooms{%
+endblock %} {% block content %}
+
+<section
+  class="site-hero overlay page-inside"
+  style="background-image: url({{ url_for('static',
+filename='img/execuive1.jpg') }})"
+>
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center">
+        <h1 class="heading" data-aos="fade-up">Executive Suite</h1>
+        <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
+          Unparalleled luxury for the discerning traveler
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END section -->
+
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5" data-aos="fade-up">
+        <img
+          src="{{ url_for('static',
+filename='img/standard1.jpg') }}"
+          alt="Executive Suite"
+          class="img-fluid rounded"
+        />
+      </div>
+      <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="mb-4">Executive Suite</h2>
+        <p>
+          Indulge in the epitome of luxury with our Executive Suite. Designed
+          for those who demand the very best, this expansive suite offers a
+          sophisticated living space, premium amenities, and personalized
+          service to ensure an unforgettable stay.
+        </p>
+        <ul class="list-unstyled mb-5">
+          <li><strong>Size:</strong> 75 m²</li>
+          <li><strong>Occupancy:</strong> 2 Adults</li>
+          <li><strong>Bed Type:</strong> King-size</li>
+          <li><strong>View:</strong> Panoramic City Skyline</li>
+        </ul>
+        <p><a href="#" class="btn btn-primary">Book Now</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Room Picture Gallery Section -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Suite Gallery</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Executive Suite - Bedroom"
+        >
+          <img
+          src="{{ url_for('static',
+          filename='img/deluxe6.jpeg') }}"
+                    alt="Executive Suite"
+                    class="img-fluid rounded"
+            
+            alt="Executive Suite - Bedroom"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Executive Suite - Living Area"
+        >
+          <img
+          src="{{ url_for('static',
+          filename='img/deluxe4.jpeg') }}"
+                    alt="Executive Suite"
+                    class="img-fluid rounded"
+          
+            alt="Executive Suite - Living Area"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Executive Suite - Bathroom"
+        >
+          <img
+          src="{{ url_for('static',
+          filename='img/deluxe5.jpeg') }}"
+                    alt="Executive Suite"
+                    class="img-fluid rounded"
+           
+            alt="Executive Suite - Bathroom"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Executive Suite - Work Area"
+        >
+          <img
+          src="{{ url_for('static',
+          filename='img/deluxe5.jpeg') }}"
+                    alt="Executive Suite"
+                    class="img-fluid rounded"
+            
+            alt="Executive Suite - Work Area"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Executive Suite - Dining Area"
+        >
+          <img
+          src="{{ url_for('static',
+          filename='img/deluxe5.jpeg') }}"
+                    alt="Executive Suite"
+                    class="img-fluid rounded"
+            alt="Executive Suite - Dining Area"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Executive Suite - City View"
+        >
+          <img
+          src="{{ url_for('static',
+          filename='img/deluxe5.jpeg') }}"
+                    alt="Executive Suite"
+                    class="img-fluid rounded"
+            alt="Executive Suite - City View"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of Room Picture Gallery Section -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Suite Features</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-wifi mr-2"></i> High-Speed Wi-Fi
+            </h3>
+            <p>
+              Stay connected with complimentary ultra-fast Wi-Fi throughout your
+              suite.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-television mr-2"></i> Smart Home System
+            </h3>
+            <p>
+              Control lighting, temperature, and entertainment with our
+              integrated smart home system.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-bath mr-2"></i> Luxury Spa Bathroom
+            </h3>
+            <p>
+              Unwind in our spacious bathroom featuring a rain shower, deep
+              soaking tub, and premium toiletries.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Executive Privileges</h2>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Complimentary access
+            to Executive Lounge
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Priority check-in and
+            late check-out
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Daily breakfast and
+            evening cocktails
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Personalized concierge
+            service
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Complimentary pressing
+            of two garments per stay
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> In-room Nespresso
+            machine and premium mini-bar
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="owl-carousel slide-one-item">
+          <img
+            src="/api/placeholder/500/375"
+            alt="Executive Lounge"
+            class="img-fluid rounded"
+          />
+          <img
+            src="/api/placeholder/500/375"
+            alt="Breakfast Spread"
+            class="img-fluid rounded"
+          />
+          <img
+            src="/api/placeholder/500/375"
+            alt="Concierge Service"
+            class="img-fluid rounded"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

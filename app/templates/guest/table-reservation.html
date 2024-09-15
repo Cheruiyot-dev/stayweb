@@ -1,0 +1,69 @@
+{% extends "guest/base.html" %}
+{% block title %}Haven Stay - Table Reservation{% endblock %}
+{% block content %}
+    <section class="site-hero overlay" style="background-image: url('/static/img/hero_image.jpg')">
+        <div class="container">
+            <div class="row site-hero-inner justify-content-center align-items-center">
+                <div class="col-md-10 text-center">
+                    <h1 class="heading">Table Reservation</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 mb-5">
+                    <div class="bg-white p-md-5 p-4 mb-5 border">
+                        <h3 class="mb-4">Reserve Your Table</h3>
+                        <form action=" {{ url_for('guest.confirm_table_reservation')}} " method="post">
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="full_name">Full Name</label>
+                                    <input type="text" id="full_name" name="full_name" class="form-control" placeholder="John Doe" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="john.doe@example.com" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="+254 712 345678" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="reservation_date">Reservation Date</label>
+                                    <input type="date" id="reservation_date" name="reservation_date" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <label for="reservation_time">Reservation Time</label>
+                                    <input type="time" id="reservation_time" name="reservation_time" class="form-control" required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="number_of_people">Number of People</label>
+                                    <input type="number" id="number_of_people" name="number_of_people" class="form-control" min="1" max="20" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="special_requests">Special Requests</label>
+                                <textarea id="special_requests" name="special_requests" class="form-control" rows="3" placeholder="Any special requests or requirements"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Reserve Table</button>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <a href="/" class="btn btn-secondary py-3 px-5 font-weight-bold">Cancel</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

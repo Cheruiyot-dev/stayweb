@@ -1,0 +1,106 @@
+{% extends "guest/base.html" %} {% block title %}Haven Stay - Home{% endblock %}
+{% block content %}
+
+
+
+
+
+
+
+
+
+    <section class="site-hero overlay page-inside"  style="background-image: url({{ url_for('static', filename='img/room1.jpg') }})" >
+      
+      <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+          <div class="col-md-10 text-center">
+            <h1 class="heading" data-aos="fade-up">Our Rooms</h1>
+            <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Enjoy your stay at Your Home Away From Home .</p>
+          </div>
+        </div>
+        <!-- <a href="#" class="scroll-down">Scroll Down</a> -->
+      </div>
+    </section>
+    <!-- END section -->
+
+    <section class="bg-light">
+      <div class="half d-md-flex d-block">
+        <div class="image" data-aos="fade" style="background-image: url({{ url_for('static', filename='img/room2.jpg') }})"></div>
+        <div class="text" data-aos="fade-right" data-aos-delay="200">
+          <h2>Standard</h2>
+          <h3>Ksh 14,000/Night</h3>
+          <ul>
+            <li>1 Bed</li>
+            <li>1 Bath</li>
+            <li>Wifi</li>
+            <li>Fully fitted kitchen</li>
+            <li>Well-furnished living area</li>
+            <li>Tranquil balcony spaces perfect for unwinding</li>
+            <li>Scenic garden view from your private patio</li>
+            <li>Maximum occupancy: 2 guests</li>
+            <li>Approximate size: 732 sq. ft (68 m²)</li>
+          </ul>
+          
+          <p></p>
+          <p></p>
+          
+          <p class="mt-5"><a href=" {{ url_for('guest.standard_room')}}" class="btn btn-primary uppercase"> More Details</a></p>
+        </div>
+      </div>
+
+      <div class="half d-md-flex d-block">
+        <div class="image order-2" data-aos="fade"  style="background-image: url({{ url_for('static', filename='img/room3.jpeg') }})"></div>
+        <div class="text" data-aos="fade-left" data-aos-delay="200">
+          <h2>Deluxe Room</h2>
+          <h3>Ksh 16,000/Night</h3>
+          <ul>
+            <li>1 Bed</li>
+            <li>1 Bath</li>
+            <li>Wifi</li>
+            <li>Fully fitted kitchen</li>
+            <li>Tastefully furnished living and bedroom areas</li>
+            <li>Private patio with serene garden views</li>
+            <li>Ideal for two guests</li>
+            <li>Maximum occupancy: 2 guests</li>
+            <li>Approximate size: 732 sq. ft (68 m²)</li>
+          </ul>
+          <p></p>
+          <p></p>
+          
+          <p class="mt-5"><a href="{{ url_for('guest.deluxe_room')}}" class="btn btn-primary uppercase">More Details</a></p>
+        </div>
+      </div>
+
+
+      <div class="half d-md-flex d-block">
+        <div class="image" data-aos="fade" style="background-image: url({{ url_for('static', filename='img/rooms4.jpeg') }})"></div>
+        <div class="text" data-aos="fade-right" data-aos-delay="200">
+          <h2>Executive Suite</h2>
+          <h3>Ksh 18,000/Night</h3>
+          <ul>
+            <li>1 Bed</li>
+            <li>1 Bath</li>
+            <li>Wifi</li>
+            <li>Fully fitted kitchen</li>
+            <li>Stylishly furnished living areas</li>
+            <li>Peaceful balcony to enjoy beautiful garden views</li>
+            <li>Perfect for those seeking extra comfort and tranquility</li>
+            <li>Maximum occupancy: 2 guests</li>
+            <li>Approximate size: 732 sq. ft (68 m²)</li>
+          </ul>
+          
+          <p></p>
+          <p></p>
+          
+          <p class="mt-5"><a href="{{ url_for('guest.executive_room')}}" class="btn btn-primary uppercase"> More Details</a></p>
+        </div>
+      </div>
+
+    </section>
+    <!-- END section -->
+
+ 
+
+
+
+{% endblock %}

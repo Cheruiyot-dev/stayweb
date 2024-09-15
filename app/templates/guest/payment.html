@@ -1,0 +1,163 @@
+{% extends "guest/base.html" %}
+{% block title %}Haven Stay - Payment{% endblock %}
+{% block content %}
+    <section class="site-hero overlay" style="background-image: url('/static/img/hero_image.jpg')">
+        <div class="container">
+            <div class="row site-hero-inner justify-content-center align-items-center">
+                <div class="col-md-10 text-center">
+                    <h1 class="heading">Complete Your Payment</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8 mb-5">
+                    <div class="bg-white p-md-5 p-4 mb-5 border">
+                        <h3>Select Payment Method</h3>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label>
+                                    <input type="radio" name="payment_method" value="card" checked> Pay with Card
+                                </label>
+                            </div>
+                            <div class="col-md-6">
+                                <label>
+                                    <input type="radio" name="payment_method" value="mpesa"> Pay with M-Pesa
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Card Payment Section -->
+                        <div id="card-payment" class="payment-section">
+                            <h4>Card Payment</h4>
+                            <form action="/confirm_booking" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="card_name">Name on Card</label>
+                                        <input type="text" id="card_name" name="card_name" class="form-control" placeholder="John Doe" required>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="card_number">Card Number</label>
+                                        <input type="text" id="card_number" name="card_number" class="form-control" placeholder="1234 5678 9012 3456" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 form-group">
+                                        <label for="expiry_month">Expiry Month</label>
+                                        <select id="expiry_month" name="expiry_month" class="form-control" required>
+                                            <option value="01">01</option>
+                                            <option value="02">02</option>
+                                            <option value="03">03</option>
+                                            <option value="04">04</option>
+                                            <option value="05">05</option>
+                                            <option value="06">06</option>
+                                            <option value="07">07</option>
+                                            <option value="08">08</option>
+                                            <option value="09">09</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11</option>
+                                            <option value="12">12</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label for="expiry_year">Expiry Year</label>
+                                        <select id="expiry_year" name="expiry_year" class="form-control" required>
+                                            <option value="2024">2024</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2027">2027</option>
+                                            <option value="2028">2028</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4 form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input type="text" id="cvv" name="cvv" class="form-control" placeholder="123" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Confirm Payment</button>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <button type="button" class="btn btn-secondary py-3 px-5 font-weight-bold" onclick="cancelPayment()">Cancel Payment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- M-Pesa Payment Section -->
+                        <div id="mpesa-payment" class="payment-section" style="display:none;">
+                            <h4>M-Pesa Payment</h4>
+                            <form action="/confirm_mpesa" method="post">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <label for="mpesa_phone">Phone Number</label>
+                                        <input type="text" id="mpesa_phone" name="mpesa_phone" class="form-control" placeholder="+254 712 345678" required>
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <label for="amount">Amount to Pay</label>
+                                        <input type="text" id="amount" name="amount" class="form-control" value="200.00" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Pay with M-Pesa</button>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <button type="button" class="btn btn-secondary py-3 px-5 font-weight-bold" onclick="cancelPayment()">Cancel Payment</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5;">
+        <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+            <div class="toast-header">
+                <strong class="mr-auto">Notification</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                Payment has been cancelled.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const paymentMethodInputs = document.querySelectorAll('input[name="payment_method"]');
+            const cardPaymentSection = document.getElementById('card-payment');
+            const mpesaPaymentSection = document.getElementById('mpesa-payment');
+
+            paymentMethodInputs.forEach(input => {
+                input.addEventListener('change', function() {
+                    if (this.value === 'card') {
+                        cardPaymentSection.style.display = 'block';
+                        mpesaPaymentSection.style.display = 'none';
+                    } else {
+                        cardPaymentSection.style.display = 'none';
+                        mpesaPaymentSection.style.display = 'block';
+                    }
+                });
+            });
+        });
+
+        function cancelPayment() {
+            document.getElementById('liveToast').classList.remove('hide');
+            setTimeout(function() {
+                window.location.href = '/review-room-booking-details';
+            }, 2000);
+        }
+    </script>
+
+{% endblock %}

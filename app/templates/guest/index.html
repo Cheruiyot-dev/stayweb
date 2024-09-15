@@ -1,0 +1,148 @@
+{% extends "guest/base.html" %}
+
+{% block title %}Haven Stay - Home{% endblock %}
+
+{% block content %}
+<section class="site-hero overlay" style="background-image: url({{ url_for('static', filename='img/havenhp1.jpg') }})">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center">
+                <h1 class="heading" data-aos="fade-up">Haven Stay</h1>
+                <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
+                    A place to dine, unwind, and stay—where comfort, flavour, &amp; tranquility meet
+                </p>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    <a href="{{ url_for('guest.hotel') }}" class="btn uppercase btn-primary mr-md-2 mr-0 mb-3 d-sm-inline d-block">Book a Room</a>
+                    <a href="{{ url_for('guest.reservation') }}" class="btn uppercase btn-outline-light d-sm-inline d-block">Make Reservations</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section visit-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="heading" data-aos="fade-right">Explore Our services</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 visit mb-3" data-aos="fade-right">
+                <a href="{{ url_for('guest.reservation') }}">
+                    <img src="{{ url_for('static', filename='img/coffee2.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                </a>
+                <h3><a href="{{ url_for('guest.reservation') }}">Restaurant &amp; Coffee lounge</a></h3>
+            </div>
+            <div class="col-lg-3 col-md-6 visit mb-3" data-aos="fade-right" data-aos-delay="100">
+                <a href="{{ url_for('guest.reservation') }}">
+                    <img src="{{ url_for('static', filename='img/bar hp.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                </a>
+                <h3><a href="{{ url_for('guest.reservation') }}">Grill &amp; Bar</a></h3>
+            </div>
+            <div class="col-lg-3 col-md-6 visit mb-3" data-aos="fade-right" data-aos-delay="200">
+                <a href="{{ url_for('guest.hotel') }}">
+                    <img src="{{ url_for('static', filename='img/room2.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                </a>
+                <h3><a href="{{ url_for('guest.hotel') }}">Hotel Rooms</a></h3>
+            </div>
+            <div class="col-lg-3 col-md-6 visit mb-3" data-aos="fade-right" data-aos-delay="300">
+                <a href="{{ url_for('guest.meetings_events') }}">
+                    <img src="{{ url_for('static', filename='img/meeting4.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                </a>
+                <h3><a href="{{ url_for('guest.meetings_events') }}">Events and Meetings Hall</a></h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section slider-section">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-8">
+                <h2 class="heading" data-aos="fade-up">
+                    Savour, Sip, Stay <br />Your Perfect Escape Awaits.
+                </h2>
+                <p class="lead" data-aos="fade-up" data-aos-delay="100">
+                    Welcome to a destination where every moment is designed for indulgence. Whether you're unwinding with a crafted cocktail at our bar and grill, enjoying a gourmet meal at the restaurant, or sipping freshly brewed coffee in our cozy lounge, we promise an experience that delights. With luxurious rooms for a restful stay and spaces to host unforgettable events, we offer more than just a visit — we offer a place to create lasting memories.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+                    <div class="slider-item">
+                        <img src="{{ url_for('static', filename='img/slider1.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </div>
+                    <div class="slider-item">
+                        <img src="{{ url_for('static', filename='img/slider2.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </div>
+                    <div class="slider-item">
+                        <img src="{{ url_for('static', filename='img/slider3.jpeg') }}" alt="Image placeholder" class="img-fluid" />
+                    </div>
+                    <div class="slider-item">
+                        <img src="{{ url_for('static', filename='img/slider4.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </div>
+                    <div class="slider-item">
+                        <img src="{{ url_for('static', filename='img/slider5.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </div>
+                    <div class="slider-item">
+                        <img src="{{ url_for('static', filename='img/coffeehp.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <a href="#" class="">View More Photos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section blog-post-entry bg-pattern">
+    <div class="container">
+        <div class="row justify-content-center text-center mb-5">
+            <div class="col-md-8">
+                <h2 class="heading" data-aos="fade-up">News, Events & Updates</h2>
+                <p class="lead" data-aos="fade-up">
+                    Check out the latest updates at Haven Stay! Discover new menu items, upcoming events, and special offers. Whether you're planning a stay, booking an event, or just stopping by for a meal, there's always something new to enjoy. Stay tuned for more news and updates!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="100">
+                <div class="media media-custom d-block mb-4">
+                    <a href="#" class="mb-4 d-block">
+                        <img src="{{ url_for('static', filename='img/havenhp2.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </a>
+                    <div class="media-body">
+                        <span class="meta-post">August 26, 2024</span>
+                        <h2 class="mt-0 mb-3"><a href="#">Coloring & Sports Extravaganza!</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="200">
+                <div class="media media-custom d-block mb-4">
+                    <a href="#" class="mb-4 d-block">
+                        <img src="{{ url_for('static', filename='img/havenhp3.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </a>
+                    <div class="media-body">
+                        <span class="meta-post">March 26, 2024</span>
+                        <h2 class="mt-0 mb-3"><a href="#">Launching the RiverSide Lounge</a></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 post" data-aos="fade-up" data-aos-delay="300">
+                <div class="media media-custom d-block mb-4">
+                    <a href="#" class="mb-4 d-block">
+                        <img src="{{ url_for('static', filename='img/img_3.jpg') }}" alt="Image placeholder" class="img-fluid" />
+                    </a>
+                    <div class="media-body">
+                        <span class="meta-post">October 26, 2024</span>
+                        <h2 class="mt-0 mb-3"><a href="#">Happy Hour Specials Now Available Daily!</a></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

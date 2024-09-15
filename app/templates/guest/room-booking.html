@@ -1,0 +1,120 @@
+{% extends "guest/base.html" %}
+{% block title %}Haven Stay - Book Deluxe Room{% endblock %}
+{% block content %}
+<section class="site-hero overlay page-inside" style="background-image: url('/static/img/deluxe_room.jpg')">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center">
+                <h1 class="heading" data-aos="fade-up">Book Deluxe Room</h1>
+                <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Complete your reservation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 mb-5" data-aos="fade-up">
+                <form action="{{ url_for('guest.review_room_booking_details') }}" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+                    <input type="hidden" name="room_type" value="Deluxe">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="text-black font-weight-bold" for="name">Name</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="text-black font-weight-bold" for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="text-black font-weight-bold" for="checkin_date">Check In</label>
+                            <input type="date" id="checkin_date" name="checkin_date" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="text-black font-weight-bold" for="checkout_date">Check Out</label>
+                            <input type="date" id="checkout_date" name="checkout_date" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="text-black font-weight-bold" for="adults">Adults</label>
+                            <select id="adults" name="adults" class="form-control" required>
+                                <option value="1">1</option>
+                                <option value="2" selected>2</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="text-black font-weight-bold" for="children">Children</label>
+                            <select id="children" name="children" class="form-control">
+                                <option value="0" selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label class="text-black font-weight-bold" for="special_requests">Special Requests</label>
+                            <textarea id="special_requests" name="special_requests" class="form-control" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <button type="submit" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Review Booking</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Booking Summary</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>Deluxe Room</h4>
+                        <p><strong>Size:</strong> 35m²</p>
+                        <p><strong>Occupancy:</strong> 2 Adults</p>
+                        <p><strong>View:</strong> Ocean View</p>
+                        <hr>
+                        <h5>Price per night: $<span id="price">200</span></h5>
+                        <p>Total nights: <span id="total_nights">0</span></p>
+                        <h4>Total: $<span id="total_price">0</span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkinDate = document.getElementById('checkin_date');
+        const checkoutDate = document.getElementById('checkout_date');
+        const totalNights = document.getElementById('total_nights');
+        const totalPrice = document.getElementById('total_price');
+        const price = parseInt(document.getElementById('price').textContent);
+    
+        function updateBookingSummary() {
+            if (checkinDate.value && checkoutDate.value) {
+                const start = new Date(checkinDate.value);
+                const end = new Date(checkoutDate.value);
+                const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
+                
+                if (nights > 0) {
+                    totalNights.textContent = nights;
+                    totalPrice.textContent = nights * price;
+                } else {
+                    totalNights.textContent = '0';
+                    totalPrice.textContent = '0';
+                }
+            }
+        }
+    
+        checkinDate.addEventListener('change', updateBookingSummary);
+        checkoutDate.addEventListener('change', updateBookingSummary);
+    });
+    </script>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "guest/base.html" %} {% block title %}Haven Stay - Meetings &
+Events{% endblock %} {% block content %}
+
+<section
+  class="site-hero overlay page-inside"
+  style="background-image: url({{ url_for('static', filename='img/meeting5.jpg') }})"
+>
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center">
+        <h1 class="heading" data-aos="fade-up">Meetings and Events</h1>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END section -->
+
+<section class="bg-light py-5">
+  <div class="container">
+    <!-- Conference Hall Section -->
+    <div class="half d-md-flex d-block mb-5">
+      <div
+        class="image"
+        data-aos="fade"
+        style="background-image: url({{ url_for('static', filename='img/meetings1.jpg') }})"
+      ></div>
+      <div class="text p-4" data-aos="fade-right" data-aos-delay="200">
+        <h2>Conference Hall</h2>
+        <p>
+          Our spacious conference halls are perfect for large gatherings,
+          conventions, or business summits. With elegant lighting,
+          state-of-the-art AV equipment, and seating for up to 500 guests, your
+          event is set for success.
+        </p>
+        <ul>
+          <li>Capacity: Up to 500 guests</li>
+          <li>Audio-visual equipment included</li>
+          <li>Catering services available</li>
+          <li>Fully air-conditioned</li>
+          <li>Ideal for corporate meetings or large events</li>
+        </ul>
+        <p class="mt-4">
+          <a href="#" class="btn btn-primary uppercase">More Details</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Private Meeting Room Section -->
+    <div class="half d-md-flex d-block mb-5">
+      <div
+        class="image order-md-2"
+        data-aos="fade"
+        style="background-image: url({{ url_for('static', filename='img/meeting3.jpg') }})"
+        
+      ></div>
+      <div class="text p-4" data-aos="fade-left" data-aos-delay="200">
+        <h2>Private Meeting Room</h2>
+        <p>
+          Perfect for smaller meetings or intimate gatherings, our private
+          meeting rooms offer a more exclusive setting. Equipped with high-speed
+          WiFi and modern technology, you can expect productivity and privacy in
+          a luxurious environment.
+        </p>
+        <ul>
+          <li>Capacity: Up to 20 guests</li>
+          <li>WiFi and presentation equipment</li>
+          <li>Complimentary refreshments</li>
+          <li>Ideal for board meetings or private discussions</li>
+        </ul>
+        <p class="mt-4">
+          <a href="#" class="btn btn-primary uppercase">More Details</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Banquet Hall Section -->
+    <div class="half d-md-flex d-block">
+      <div
+        class="image"
+        data-aos="fade"
+        style="background-image: url({{ url_for('static', filename='img/meeting4.jpg') }})"
+        
+      ></div>
+      <div class="text p-4" data-aos="fade-right" data-aos-delay="200">
+        <h2>Banquet Hall</h2>
+        <p>
+          For elegant dinners, weddings, or gala events, our banquet hall
+          provides an opulent backdrop. With customizable layouts and full
+          catering services, your event will be both stylish and memorable.
+        </p>
+        <ul>
+          <li>Capacity: Up to 300 guests</li>
+          <li>Customizable seating and décor</li>
+          <li>Full-service catering available</li>
+          <li>Perfect for weddings, parties, and formal dinners</li>
+        </ul>
+        <p class="mt-4">
+          <a href="#" class="btn btn-primary uppercase">More Details</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

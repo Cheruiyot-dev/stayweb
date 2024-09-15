@@ -1,0 +1,58 @@
+{% extends "guest/base.html" %}
+{% block title %}Haven Stay - Review Your Booking{% endblock %}
+{% block content %}
+<section class="site-hero overlay" style="background-image: url('/static/img/hero_image.jpg')">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center">
+                <h1 class="heading" data-aos="fade-up">Review Your Booking</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mb-5" data-aos="fade-up">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Booking Details</h3>
+                    </div>
+                    <div class="card-body">
+                        <h4>Deluxe Room</h4>
+                        <p><strong>Check-in:</strong> September 18, 2024</p>
+                        <p><strong>Check-out:</strong> September 22, 2024</p>
+                        <p><strong>Stay Duration:</strong> 2 Days</p>
+                        <p><strong>Guests:</strong> 2 Adults, 1 Child</p>
+                        <p><strong>Special Requests:</strong> Early check-in</p>
+                        <h5 class="mt-4">Add-ons:</h5>
+                        <ul>
+                            <li>Breakfast - $20</li>
+                            <li>Spa - $50</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0">Price Summary</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Room Total:</strong> $500</p>
+                        <p><strong>Add-ons Total:</strong> $70</p>
+                        <p><strong>Taxes:</strong> $50</p>
+                        <h4>Grand Total: $620</h4>
+                    </div>
+                </div>
+                <form 
+                action="{{ url_for('guest.process_payment') }}"
+                 method="post" class="mt-4">
+                    <button type="submit" class="btn btn-primary btn-block py-3">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

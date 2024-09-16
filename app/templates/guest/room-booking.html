@@ -96,25 +96,33 @@
         const totalNights = document.getElementById('total_nights');
         const totalPrice = document.getElementById('total_price');
         const price = parseInt(document.getElementById('price').textContent);
-    
+        
         function updateBookingSummary() {
-            if (checkinDate.value && checkoutDate.value) {
-                const start = new Date(checkinDate.value);
-                const end = new Date(checkoutDate.value);
-                const nights = Math.round((end - start) / (1000 * 60 * 60 * 24));
+            const startDate = new Date(checkinDate.value);
+            const endDate = new Date(checkoutDate.value);
+
+            if (startDate && endDate && startDate < endDate) {
+                const timeDiff = endDate.getTime() - startDate.getTime();
+                const nights = Math.round(timeDiff / (1000 * 60 * 60 * 24)); // Calculate total nights
                 
                 if (nights > 0) {
                     totalNights.textContent = nights;
-                    totalPrice.textContent = nights * price;
+                    totalPrice.textContent = (nights * price).toFixed(2);  // Update total price
                 } else {
-                    totalNights.textContent = '0';
-                    totalPrice.textContent = '0';
+                    resetBookingSummary();
                 }
+            } else {
+                resetBookingSummary(); // Reset if dates are invalid
             }
         }
-    
+
+        function resetBookingSummary() {
+            totalNights.textContent = '0';
+            totalPrice.textContent = '0';
+        }
+
         checkinDate.addEventListener('change', updateBookingSummary);
         checkoutDate.addEventListener('change', updateBookingSummary);
     });
-    </script>
+</script>
 {% endblock %}

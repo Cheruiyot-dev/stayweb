@@ -1,149 +1,202 @@
 {% extends "guest/base.html" %} {% block title %}Haven Stay - Home{% endblock %}
 {% block content %}
 
+<section
+  class="site-hero overlay page-inside"
+  style="background-image: url({{ url_for('static', filename='img/standard1.jpg') }})"
+>
+  <div class="container">
+    <div class="row site-hero-inner justify-content-center align-items-center">
+      <div class="col-md-10 text-center">
+        <h1 class="heading" data-aos="fade-up">Standard Room</h1>
+        <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
+          Comfortable and affordable
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END section -->
 
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5" data-aos="fade-up">
+        <img
+          src="{{ url_for('static', filename='img/standard2.jpg') }}"
+          alt="Standard Room"
+          class="img-fluid rounded"
+        />
+      </div>
+      <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
+        <h2 class="mb-4">Standard Room</h2>
+        <p>
+          Our Standard Room offers a cozy and comfortable stay for
+          budget-conscious travelers. Enjoy all the essential amenities in a
+          well-designed space that ensures a restful night's sleep.
+        </p>
+        <ul class="list-unstyled mb-5">
+          <li><strong>Size:</strong> 25 m²</li>
+          <li><strong>Occupancy:</strong> 2 Adults</li>
+          <li><strong>Bed Type:</strong> Queen-size or Twin</li>
+          <li><strong>View:</strong> City</li>
+        </ul>
 
+        <p>
+          <a href=" {{ url_for('guest.room_booking')}} " class="btn btn-primary"
+            >Book Now</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- Room Picture Gallery Section -->
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Room Gallery</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Standard Room - Bedroom"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe4.jpeg') }}"
+            alt="Standard Room - Bedroom"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Standard Room - Bathroom"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe5.jpeg') }}"
+            alt="Standard Room - Bathroom"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <a
+          href="/api/placeholder/800/600"
+          data-lightbox="room-gallery"
+          data-title="Standard Room - Work Area"
+        >
+          <img
+            src="{{ url_for('static', filename='img/deluxe3.jpeg') }}"
+            alt="Standard Room - Work Area"
+            class="img-fluid rounded"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of Room Picture Gallery Section -->
 
-
-
-
-
-
-
-
-
-    <section class="site-hero overlay page-inside"
-    style="background-image: url({{ url_for('static', filename='img/standard1.jpg') }})"  
- >
-        <div class="container">
-            <div class="row site-hero-inner justify-content-center align-items-center">
-                <div class="col-md-10 text-center">
-                    <h1 class="heading" data-aos="fade-up">Standard Room</h1>
-                    <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Comfortable and affordable</p>
-                </div>
-            </div>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Room Features</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4" data-aos="fade-up">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-wifi mr-2"></i> Free Wi-Fi
+            </h3>
+            <p>
+              Stay connected with complimentary Wi-Fi access throughout your
+              stay.
+            </p>
+          </div>
         </div>
-    </section>
-    <!-- END section -->
-
-    <section class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 mb-5" data-aos="fade-up">
-                   
-                    <img  src="{{ url_for('static', filename='img/standard2.jpg') }}"  alt="Standard Room" class="img-fluid rounded">
-                </div>
-                <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
-                    <h2 class="mb-4">Standard Room</h2>
-                    <p>Our Standard Room offers a cozy and comfortable stay for budget-conscious travelers. Enjoy all the essential amenities in a well-designed space that ensures a restful night's sleep.</p>
-                    <ul class="list-unstyled mb-5">
-                        <li><strong>Size:</strong> 25 m²</li>
-                        <li><strong>Occupancy:</strong> 2 Adults</li>
-                        <li><strong>Bed Type:</strong> Queen-size or Twin</li>
-                        <li><strong>View:</strong> City</li>
-                    </ul>
-
-
-
-                    <p><a href=" {{ url_for('guest.review_room_booking_details')}} " class="btn btn-primary">Book Now</a></p>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-television mr-2"></i> Flat-screen TV
+            </h3>
+            <p>
+              Enjoy your favorite programs on our 40-inch flat-screen TV with
+              cable channels.
+            </p>
+          </div>
         </div>
-    </section>
-
-    <!-- Room Picture Gallery Section -->
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 mb-5" data-aos="fade-up">
-                    <h2 class="mb-4">Room Gallery</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up">
-                    <a href="/api/placeholder/800/600" data-lightbox="room-gallery" data-title="Standard Room - Bedroom">
-                        <img 
-                        src="{{ url_for('static', filename='img/deluxe4.jpeg') }}" 
-                        alt="Standard Room - Bedroom" class="img-fluid rounded">
-                    </a>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <a href="/api/placeholder/800/600" data-lightbox="room-gallery" data-title="Standard Room - Bathroom">
-                        <img   src="{{ url_for('static', filename='img/deluxe5.jpeg') }}" 
-                        
-                        
-                        alt="Standard Room - Bathroom" class="img-fluid rounded">
-                    </a>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <a href="/api/placeholder/800/600" data-lightbox="room-gallery" data-title="Standard Room - Work Area">
-                        <img
-                        src="{{ url_for('static', filename='img/deluxe3.jpeg') }}" 
-                        alt="Standard Room - Work Area" class="img-fluid rounded">
-                    </a>
-                </div>
-            </div>
+      </div>
+      <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="media d-block room-feature">
+          <div class="media-body">
+            <h3 class="mt-0 mb-3">
+              <i class="fa fa-bath mr-2"></i> En-suite Bathroom
+            </h3>
+            <p>
+              Freshen up in our clean and modern en-suite bathroom with a
+              shower.
+            </p>
+          </div>
         </div>
-    </section>
-    <!-- End of Room Picture Gallery Section -->
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 mb-5" data-aos="fade-up">
-                    <h2 class="mb-4">Room Features</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 mb-4" data-aos="fade-up">
-                    <div class="media d-block room-feature">
-                        <div class="media-body">
-                            <h3 class="mt-0 mb-3"><i class="fa fa-wifi mr-2"></i> Free Wi-Fi</h3>
-                            <p>Stay connected with complimentary Wi-Fi access throughout your stay.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="media d-block room-feature">
-                        <div class="media-body">
-                            <h3 class="mt-0 mb-3"><i class="fa fa-television mr-2"></i> Flat-screen TV</h3>
-                            <p>Enjoy your favorite programs on our 40-inch flat-screen TV with cable channels.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="media d-block room-feature">
-                        <div class="media-body">
-                            <h3 class="mt-0 mb-3"><i class="fa fa-bath mr-2"></i> En-suite Bathroom</h3>
-                            <p>Freshen up in our clean and modern en-suite bathroom with a shower.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<section class="bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7 mb-5" data-aos="fade-up">
+        <h2 class="mb-4">Additional Services</h2>
+        <ul class="list-unstyled">
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Daily housekeeping
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> 24/7 front desk
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Laundry service
+            (additional charge)
+          </li>
+          <li class="mb-3">
+            <i class="fa fa-check text-primary mr-2"></i> Wake-up service
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="owl-carousel slide-one-item">
+          <img
+            src="/api/placeholder/500/375"
+            alt="Housekeeping"
+            class="img-fluid rounded"
+          />
+          <img
+            src="/api/placeholder/500/375"
+            alt="Front Desk"
+            class="img-fluid rounded"
+          />
+          <img
+            src="/api/placeholder/500/375"
+            alt="Laundry Service"
+            class="img-fluid rounded"
+          />
         </div>
-    </section>
-
-    <section class="bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-7 mb-5" data-aos="fade-up">
-                    <h2 class="mb-4">Additional Services</h2>
-                    <ul class="list-unstyled">
-                        <li class="mb-3"><i class="fa fa-check text-primary mr-2"></i> Daily housekeeping</li>
-                        <li class="mb-3"><i class="fa fa-check text-primary mr-2"></i> 24/7 front desk</li>
-                        <li class="mb-3"><i class="fa fa-check text-primary mr-2"></i> Laundry service (additional charge)</li>
-                        <li class="mb-3"><i class="fa fa-check text-primary mr-2"></i> Wake-up service</li>
-                    </ul>
-                </div>
-                <div class="col-md-5" data-aos="fade-up" data-aos-delay="200">
-                    <div class="owl-carousel slide-one-item">
-                        <img src="/api/placeholder/500/375" alt="Housekeeping" class="img-fluid rounded">
-                        <img src="/api/placeholder/500/375" alt="Front Desk" class="img-fluid rounded">
-                        <img src="/api/placeholder/500/375" alt="Laundry Service" class="img-fluid rounded">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    {% endblock %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "guest/base.html" %}
+
+{% block title %}Payment Success{% endblock %}
+
+{% block content %}
+<section class="site-hero overlay page-inside" style="background-image: url('/static/img/success_background.jpg')">
+    <div class="container">
+        <div class="row site-hero-inner justify-content-center align-items-center">
+            <div class="col-md-10 text-center">
+                <h1 class="heading" data-aos="fade-up">Payment Successful!</h1>
+                <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Thank you for choosing Haven Stay Hotel. Your booking is now confirmed!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light py-5">
+    <div class="container text-center">
+        <h2 class="mb-4">Payment Received</h2>
+        <p>Your payment has been processed successfully.</p>
+        <p>Check-in date: {{ booking.check_in_date.strftime('%Y-%m-%d') }}</p>
+        <p>Check-out date: {{ booking.check_out_date.strftime('%Y-%m-%d') }}</p>
+        <p>Total amount paid: Kshs:{{ booking.total_price }}</p>
+        <p>You will receive a confirmation email shortly.</p>
+        <a href="{{ url_for('guest.room_booking') }}" class="btn btn-primary px-4 py-2">Book Another Room</a>
+    </div>
+</section>
+{% endblock %}

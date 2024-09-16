@@ -1,11 +1,11 @@
 {% extends "guest/base.html" %}
-{% block title %}Haven Stay - Book Deluxe Room{% endblock %}
+{% block title %}Haven Stay - Book a Room{% endblock %}
 {% block content %}
 <section class="site-hero overlay page-inside" style="background-image: url('/static/img/deluxe_room.jpg')">
     <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
             <div class="col-md-10 text-center">
-                <h1 class="heading" data-aos="fade-up">Book Deluxe Room</h1>
+                <h1 class="heading" data-aos="fade-up">Book a Room</h1>
                 <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Complete your reservation</p>
             </div>
         </div>
@@ -16,8 +16,27 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 mb-5" data-aos="fade-up">
-                <form action="{{ url_for('guest.review_room_booking_details') }}" method="post" class="bg-white p-md-5 p-4 mb-5 border">
-                    <input type="hidden" name="room_type" value="Deluxe">
+                <form action="{{ url_for('guest.room_booking') }}" method="post" class="bg-white p-md-5 p-4 mb-5 border">
+                    
+                    <!-- Room Type Selection (Dynamically populated from backend) -->
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label class="text-black font-weight-bold" for="room_type">Room Type</label>
+                            <select id="room_type" name="room_category" class="form-control" required>
+                                {% for category in room_categories %}
+                                <option value="{{ category.id }}" 
+                                        data-price="{{ category.rooms[0].price if category.rooms|length > 0 else 'N/A' }}" 
+                                        data-size="{{ category.description }}" 
+                                        data-occupancy="{{ '2 Adults' if category.name != 'Executive' else '4 Adults' }}" >
+                                       
+                                    {{ category.name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Other form fields -->
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label class="text-black font-weight-bold" for="name">Name</label>
@@ -63,25 +82,27 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <button type="submit" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Review Booking</button>
+                            <button type="submit" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Book</button>
                         </div>
                     </div>
                 </form>
             </div>
+
+            <!-- Booking Summary (Updated dynamically) -->
             <div class="col-md-5 pl-md-5" data-aos="fade-up" data-aos-delay="200">
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <h3 class="mb-0">Booking Summary</h3>
                     </div>
                     <div class="card-body">
-                        <h4>Deluxe Room</h4>
-                        <p><strong>Size:</strong> 35m²</p>
-                        <p><strong>Occupancy:</strong> 2 Adults</p>
-                        <p><strong>View:</strong> Ocean View</p>
+                        <h4 id="room_type_summary">Deluxe Room</h4>
+                        <p><strong>Size:</strong> <span id="room_size">35m²</span></p>
+                        <p><strong>Occupancy:</strong> <span id="room_occupancy">2 Adults</span></p>
+                       
                         <hr>
-                        <h5>Price per night: $<span id="price">200</span></h5>
+                        <h5>Price per night: Kshs.<span id="price">200</span></h5>
                         <p>Total nights: <span id="total_nights">0</span></p>
-                        <h4>Total: $<span id="total_price">0</span></h4>
+                        <h4>Total:  Kshs.<span id="total_price">0</span></h4>
                     </div>
                 </div>
             </div>
@@ -95,11 +116,17 @@
         const checkoutDate = document.getElementById('checkout_date');
         const totalNights = document.getElementById('total_nights');
         const totalPrice = document.getElementById('total_price');
-        const price = parseInt(document.getElementById('price').textContent);
-        
+        const priceElement = document.getElementById('price');
+        const roomTypeSelect = document.getElementById('room_type');
+        const roomTypeSummary = document.getElementById('room_type_summary');
+        const roomSize = document.getElementById('room_size');
+        const roomOccupancy = document.getElementById('room_occupancy');
+       
+
         function updateBookingSummary() {
             const startDate = new Date(checkinDate.value);
             const endDate = new Date(checkoutDate.value);
+            const price = parseInt(priceElement.textContent);
 
             if (startDate && endDate && startDate < endDate) {
                 const timeDiff = endDate.getTime() - startDate.getTime();
@@ -121,8 +148,26 @@
             totalPrice.textContent = '0';
         }
 
+        function updateRoomDetails() {
+            const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
+            const selectedPrice = selectedOption.getAttribute('data-price');
+            const selectedSize = selectedOption.getAttribute('data-size');
+            const selectedOccupancy = selectedOption.getAttribute('data-occupancy');
+  
+
+            priceElement.textContent = selectedPrice;
+            roomTypeSummary.textContent = selectedOption.textContent + " Room";
+            roomSize.textContent = selectedSize;
+            roomOccupancy.textContent = selectedOccupancy;
+       
+
+            updateBookingSummary();  // Update the total price after changing room type
+        }
+
+        // Event listeners
         checkinDate.addEventListener('change', updateBookingSummary);
         checkoutDate.addEventListener('change', updateBookingSummary);
+        roomTypeSelect.addEventListener('change', updateRoomDetails);
     });
 </script>
 {% endblock %}

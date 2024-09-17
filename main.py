@@ -12,29 +12,29 @@ from app.models import Guest, Room, Booking, Table, TableReservation, Payment, R
 # Load environment variables from .env file
 load_dotenv()
 
-# Initialize the Flask app
-app = Flask(__name__, template_folder='app/templates', static_folder='app/static')
+def create_app():
+    # Initialize the Flask app
+    app = Flask(__name__, template_folder='app/templates', static_folder='app/static')
 
-# Set a secret key for sessions (loaded from environment variables)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    # Set a secret key for sessions (loaded from environment variables)
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
-# Load the SQLAlchemy database URL from environment variables
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DATABASE_URL')
+    # Load the SQLAlchemy database URL from environment variables
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv('DATABASE_URL')
 
-# Initialize the database with the app
-db.init_app(app)
+    # Initialize the database with the app
+    db.init_app(app)
 
-# Initialize Flask-Migrate for handling migrations
-migrate = Migrate(app, db)
+    # Initialize Flask-Migrate for handling migrations
+    Migrate(app, db)  # This creates the 'migrate' extension
 
-# Register Blueprints for guest and admin routes
-app.register_blueprint(guest_bp, url_prefix='/')
-app.register_blueprint(admin_bp, url_prefix='/admin')
+    # Register Blueprints for guest and admin routes
+    app.register_blueprint(guest_bp, url_prefix='/')
+    app.register_blueprint(admin_bp, url_prefix='/admin')
 
-def run_migrations():
-    """
-    Run migrations automatically when the app starts.
-    """
+    return app
+
+def run_migrations(app):
     with app.app_context():
         try:
             upgrade()  # Automatically run flask db upgrade
@@ -42,7 +42,12 @@ def run_migrations():
         except Exception as e:
             print(f"Error running migrations: {e}")
 
+# Create the application instance
+app = create_app()
+
+# Run migrations
+run_migrations(app)
+
 if __name__ == "__main__":
-    # Run migrations and start the Flask application
-    run_migrations()
+    # Run the Flask application in debug mode when executed directly
     app.run(debug=True)

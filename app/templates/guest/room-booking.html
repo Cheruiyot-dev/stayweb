@@ -17,8 +17,7 @@
         <div class="row">
             <div class="col-md-7 mb-5" data-aos="fade-up">
                 <form action="{{ url_for('guest.room_booking') }}" method="post" class="bg-white p-md-5 p-4 mb-5 border">
-                    
-                    <!-- Room Type Selection (Dynamically populated from backend) -->
+                  
                     <div class="row">
                         <div class="col-md-12 form-group">
                             <label class="text-black font-weight-bold" for="room_type">Room Type</label>
@@ -27,8 +26,7 @@
                                 <option value="{{ category.id }}" 
                                         data-price="{{ category.rooms[0].price if category.rooms|length > 0 else 'N/A' }}" 
                                         data-size="{{ category.description }}" 
-                                        data-occupancy="{{ '2 Adults' if category.name != 'Executive' else '4 Adults' }}" >
-                                       
+                                        data-occupancy="{{ '2 Adults' if category.name != 'Executive' else '4 Adults' }}">
                                     {{ category.name }}
                                 </option>
                                 {% endfor %}
@@ -122,7 +120,6 @@
         const roomSize = document.getElementById('room_size');
         const roomOccupancy = document.getElementById('room_occupancy');
        
-
         function updateBookingSummary() {
             const startDate = new Date(checkinDate.value);
             const endDate = new Date(checkoutDate.value);
@@ -154,12 +151,10 @@
             const selectedSize = selectedOption.getAttribute('data-size');
             const selectedOccupancy = selectedOption.getAttribute('data-occupancy');
   
-
             priceElement.textContent = selectedPrice;
             roomTypeSummary.textContent = selectedOption.textContent + " Room";
             roomSize.textContent = selectedSize;
             roomOccupancy.textContent = selectedOccupancy;
-       
 
             updateBookingSummary();  // Update the total price after changing room type
         }

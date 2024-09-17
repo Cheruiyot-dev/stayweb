@@ -1,96 +1,147 @@
 {% extends "guest/base.html" %}
-
-{% block title %}Booking Confirmation{% endblock %}
-
+{% block title %}Haven Stay - Confirm Booking{% endblock %}
 {% block content %}
-<section class="site-hero overlay page-inside" style="background-image: url('/static/img/confirmation_background.jpg')">
+<section class="site-hero overlay page-inside" style="background-image: url('/static/img/deluxe_room.jpg')">
     <div class="container">
         <div class="row site-hero-inner justify-content-center align-items-center">
             <div class="col-md-10 text-center">
-                <h1 class="heading" data-aos="fade-up">Booking Confirmed!</h1>
-                <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Thank you for choosing Haven Stay, {{ booking.guest.name }}!</p>
+                <h1 class="heading" data-aos="fade-up">Confirm Your Booking</h1>
+                <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">Please review your booking details</p>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section bg-light py-5">
+<section class="section bg-light">
     <div class="container">
-        <div class="row justify-content-center mb-5">
-            <div class="col-md-8">
-                <div class="card shadow">
-                    <div class="card-header bg-primary text-white text-center">
-                        <h2>Booking Details</h2>
+        <div class="row">
+            <!-- Booking Summary -->
+            <div class="col-md-12 mb-4" data-aos="fade-up">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="mb-0 text-center">Booking Summary</h3>
                     </div>
-                    <div class="card-body p-4">
-                        <h4 class="text-center mb-4">Reservation Summary</h4>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <strong>Room Type:</strong>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Room:</strong> {{ booking_info['room_category'] }}</p>
                             </div>
-                            <div class="col-6 text-right">
-                                {{ booking.room.category.name }}
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <strong>Check-in:</strong>
-                            </div>
-                            <div class="col-6 text-right">
-                                {{ booking.check_in_date.strftime('%B %d, %Y') }}
+                            <div class="col-md-6">
+                                <p><strong>Guest Name:</strong> {{ booking_info['name'] }}</p>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <strong>Check-out:</strong>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Email:</strong> {{ booking_info['email'] }}</p>
                             </div>
-                            <div class="col-6 text-right">
-                                {{ booking.check_out_date.strftime('%B %d, %Y') }}
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <strong>Total Guests:</strong>
-                            </div>
-                            <div class="col-6 text-right">
-                                {{ booking.number_of_guests }}
+                            <div class="col-md-6">
+                                <p><strong>Check-in Date:</strong> {{ booking_info['checkin_date'] }}</p>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <strong>Total Price:</strong>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Check-out Date:</strong> {{ booking_info['checkout_date'] }}</p>
                             </div>
-                            <div class="col-6 text-right">
-                                ${{ booking.total_price }}
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-6">
-                                <strong>Status:</strong>
-                            </div>
-                            <div class="col-6 text-right">
-                                {{ booking.status.value | capitalize }}
+                            <div class="col-md-6">
+                                <p><strong>Adults:</strong> {{ booking_info['adults'] }}</p>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Children:</strong> {{ booking_info['children'] }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Total Guests:</strong> {{ booking_info['total_guests'] }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><strong>Special Requests:</strong> {{ booking_info['special_requests'] or 'None' }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="text-right">Total Price: Kshs. {{ "%.2f"|format(booking_info['total_price']) }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="{{ url_for('guest.confirm_room_booking') }}" method="post" class="mt-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="{{ url_for('guest.room_booking') }}" class="btn btn-secondary btn-block">Modify Booking</a>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary btn-block">Confirm and Proceed to Payment</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
-                        {% if booking.special_requests %}
-                        <hr>
-                        <h5 class="text-center mt-3">Special Requests</h5>
-                        <p class="text-muted text-center">{{ booking.special_requests }}</p>
-                        {% endif %}
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="{{ url_for('guest.room_booking') }}" class="btn btn-primary px-4 py-2">Book Another Room</a>
-                    </div>
-                    <div class="card-footer text-center">
-                        <a href="{{ url_for('guest.room_booking') }}" class="btn btn-primary px-4 py-2">Cancel Booking</a>
-                    </div>
+        <!-- Room Selection Interface -->
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="mb-4 text-center">More Room Options</h3>
+            </div>
 
-                    <div class="card-footer text-center"></div>
-                        <a href="{{ url_for('guest.process_payment', booking_id=booking.id) }}" class="btn btn-primary px-4 py-2">pay</a>
+            <!-- Room Option 1 -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ url_for('static', filename='img/superior_room.jpg') }}" class="card-img" alt="Superior Room">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Superior Room</h5>
+                                <p class="card-text">
+                                    2 People · 1 King Bed · 30m² <br>
+                                    Smart TV, Free Wi-Fi, Minibar, Tea/Coffee maker.
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p class="mb-0"><strong>Kshs. 15,000</strong> / Night</p>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <a href="#" class="btn btn-primary">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Room Option 2 -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ url_for('static', filename='img/business_suite.jpg') }}" class="card-img" alt="Business Suite">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Business Suite</h5>
+                                <p class="card-text">
+                                    4 People · 1 King Bed · 43m² <br>
+                                    Smart TV, Free Wi-Fi, Living Area, Workspace.
+                                </p>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p class="mb-0"><strong>Kshs. 20,000</strong> / Night</p>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <a href="#" class="btn btn-primary">Book Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more room options in a similar format -->
         </div>
     </div>
 </section>

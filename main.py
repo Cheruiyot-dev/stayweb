@@ -16,7 +16,9 @@ app.config['SECRET_KEY'] = b'_5#y2L"F4Q8z\n\xec]/'
 # Load config from a config file or environment variables
 # app.config.from_object('config.Config')
 
-app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:1092@localhost/havenstaydb'
+# app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:1092@localhost/havenstaydb'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://havenstaydb_user:VCTJku33iQdUah7E5uLNLCGgXonRj1aB@dpg-crkculbv2p9s73b5ehsg-a.oregon-postgres.render.com/havenstaydb'
+
 
 db.init_app(app)
 

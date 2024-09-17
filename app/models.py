@@ -20,38 +20,24 @@ class Guest(db.Model):
     bookings = db.relationship('Booking', back_populates='guest', lazy='select', cascade='all, delete-orphan')
 
 
-    # Email Validation
-    @validates('email')
-    def validate_email(self, key, email):
-        if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
-            raise ValueError("Invalid email address")
-        return email
-
-    def __repr__(self):
-        return f'<Guest {self.name}>'
-
 # Room Category Model
 class RoomCategory(db.Model):
-    __tablename__ = 'room_categories'
-    
+    __tablename__ = 'room_categories'   
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
-    
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False) 
     name = db.Column(db.String(50), unique=True, nullable=False)
     description = db.Column(db.Text)
 
     def __repr__(self):
         return f'<RoomCategory {self.name}>'
 
-# Room Model
+
 class Room(db.Model):
-    __tablename__ = 'rooms'
-    
+    __tablename__ = 'rooms' 
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
-    
     room_number = db.Column(db.String(10), unique=True, nullable=False)
     category_id = db.Column(db.Integer, db.ForeignKey('room_categories.id'), nullable=False)
     price = db.Column(db.Numeric(10, 2), nullable=False)

@@ -21,7 +21,9 @@
                 <div class="col-3 site-logo" data-aos="fade">
                     <a href="{{url_for('guest.index')}}">Haven Stay</a>
                 </div>
-                <div class="col-6 text-center">
+
+                <!-- Centered Book and Gallery links -->
+                <div class="col-6 text-center d-flex justify-content-center align-items-center">
                     <div class="d-inline-block mr-3">
                         <div class="dropdown show">
                             <a class="btn btn-secondary dropdown-toggle btn-rectangular" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,10 +36,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-inline-block  site-logo">
+                    <div class="d-inline-block site-logo">
                         <a href="{{ url_for('guest.gallery')}}">Gallery</a>
                     </div>
                 </div>
+
                 <div class="col-3 text-right">
                     <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
                         <span></span>

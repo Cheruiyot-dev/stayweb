@@ -22,7 +22,7 @@
         <p>Check-out date: {{ booking.check_out_date.strftime('%Y-%m-%d') }}</p>
         <p>Total amount paid: Kshs:{{ booking.total_price }}</p>
         <p>You will receive a confirmation email shortly.</p>
-        <a href="{{ url_for('guest.room_booking') }}" class="btn btn-primary px-4 py-2">Book Another Room</a>
+        <a href="{{ url_for('guest.index') }}" class="btn btn-primary px-4 py-2">Home</a>
     </div>
 </section>
 {% endblock %}

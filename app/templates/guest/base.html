@@ -17,152 +17,141 @@
 <body>
     <header class="site-header">
         <div class="container-fluid">
-            <!-- target this to make navbar sticky -->
             <div class="row align-items-center nav-sticky">
-              <div class="col-4 site-logo" data-aos="fade">
-                <a href=" {{url_for('guest.index')}}">Haven Stay</a>
-              </div>
-              <div class="col-4 text-center">
-            
-                 <div class="dropdown show">
-                  <a class="btn btn-secondary dropdown-toggle  btn-rectangular" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Book
-                  </a>
-                
-                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    
-                    <a class="dropdown-item" href=" {{ url_for('guest.hotel')}}">Book Room</a>
-                    <a class="dropdown-item" href=" {{ url_for('guest.reservation')}}">Table Reservations</a>
-                    <a class="dropdown-item" href=" {{ url_for('guest.meetings_events')}}">Meetings & Events</a>
-                  </div>
+                <div class="col-3 site-logo" data-aos="fade">
+                    <a href="{{url_for('guest.index')}}">Haven Stay</a>
                 </div>
-              </div>
-              <div class="col-4">
-                <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
-                  <span></span>
-                  <span></span>
-                  <span></span>
+                <div class="col-6 text-center">
+                    <div class="d-inline-block mr-3">
+                        <div class="dropdown show">
+                            <a class="btn btn-secondary dropdown-toggle btn-rectangular" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Book
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{ url_for('guest.hotel')}}">Book Room</a>
+                                <a class="dropdown-item" href="{{ url_for('guest.reservation')}}">Table Reservations</a>
+                                <a class="dropdown-item" href="{{ url_for('guest.meetings_events')}}">Meetings & Events</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-inline-block  site-logo">
+                        <a href="{{ url_for('guest.gallery')}}">Gallery</a>
+                    </div>
                 </div>
-                <!-- END menu-toggle -->
+                <div class="col-3 text-right">
+                    <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-                <div class="site-navbar js-site-navbar">
-                  <nav role="navigation">
-                    <div class="container">
-                      <div class="row full-height align-items-center">
+        <div class="site-navbar js-site-navbar">
+            <nav role="navigation">
+                <div class="container">
+                    <div class="row full-height align-items-center">
                         <div class="col-md-6">
-                          <ul class="list-unstyled menu">
-                            <li class="active"><a href=" {{ url_for('guest.index')}}">Home</a></li>
-                            <li><a href=" {{ url_for('guest.hotel')}}">Rooms & Bookings</a></li>
-                            <li><a href="  {{ url_for('guest.reservation')}}">Bar & Reservations</a></li>
-                            <li><a href=" {{ url_for('guest.meetings_events')}}">Meetings & Events</a></li>
-                            <!-- <li><a href="blog.html">Latest news & updates</a></li> -->
-                            <li><a href=" {{ url_for('guest.contact')}}">Contact us</a></li>
-                            <li><a href=" {{ url_for('guest.about')}} ">About</a></li>
-                          </ul>
+                            <ul class="list-unstyled menu">
+                                <li class="active"><a href="{{ url_for('guest.index')}}">Home</a></li>
+                                <li><a href="{{ url_for('guest.hotel')}}">Rooms & Bookings</a></li>
+                                <li><a href="{{ url_for('guest.reservation')}}">Bar & Reservations</a></li>
+                                <li><a href="{{ url_for('guest.meetings_events')}}">Meetings & Events</a></li>
+                                <li><a href="{{ url_for('guest.contact')}}">Contact us</a></li>
+                                <li><a href="{{ url_for('guest.about')}}">About</a></li>
+                            </ul>
                         </div>
                         <div class="col-md-6 extra-info">
-                          <div class="row">
-                            <div class="col-md-6 mb-5">
-                              <h3>Contact Information</h3>
-                              <p>
-                                Off Elgonview Road <br />
-                                Eldoret City
-                              </p>
-                              <p>info@havenstay.co.ke</p>
-                              <p>+254 701 929 704</p>
+                            <div class="row">
+                                <div class="col-md-6 mb-5">
+                                    <h3>Contact Information</h3>
+                                    <p>
+                                        Off Elgonview Road <br />
+                                        Eldoret City
+                                    </p>
+                                    <p>info@havenstay.co.ke</p>
+                                    <p>+254 701 929 704</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Connect With Us</h3>
+                                    <ul class="list-unstyled">
+                                        <li><a href="#">Twitter</a></li>
+                                        <li><a href="#">Facebook</a></li>
+                                        <li><a href="#">Instagram</a></li>
+                                        <li><a href="#">Whatsapp</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                              <h3>Connect With Us</h3>
-                              <ul class="list-unstyled">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">Facebook</a></li>
-                                <li><a href="#">Instagram</a></li>
-                                <li><a href="#">Whatsapp</a></li>
-                              </ul>
-                            </div>
-                          </div>
                         </div>
-                      </div>
                     </div>
-                  </nav>
                 </div>
-              </div>
-            </div>
-          </div>
+            </nav>
+        </div>
     </header>
 
     {% block content %}{% endblock %}
 
-    <footer class="section footer-section">
-        <div class="container">
-            <div class="row mb-4">
-              <!-- Quick Links Section -->
-              <div class="col-md-3 mb-5">
-                <h5>Quick Links</h5>
-                <ul class="list-unstyled link">
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                  <li><a href="#">Privacy Policy</a></li>
-                  <li><a href="#">Rooms & Bookings</a></li>
-                  <li><a href="#">Reservations</a></li>
-                </ul>
-              </div>
-              
-              <!-- Additional Links Section -->
-              <div class="col-md-3 mb-5">
-                <h5>Additional Info</h5>
-                <ul class="list-unstyled link">
-                  <li><a href="#">Meetings & Events</a></li>
-                  <li><a href="#">The Lounge</a></li>
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Contact</a></li>
-                  <li><a href="#">Hotel</a></li>
-                </ul>
-              </div>
-              
-              <!-- Contact Information Section -->
-              <div class="col-md-3 mb-5 pr-md-5 contact-info">
-                <h5>Contact Information</h5>
-                <p><strong>Address:</strong> Off Elgonview Road, Eldoret City</p>
-                <p><strong>Phone:</strong> +254 701 929 704</p>
-                <p><strong>Whatsapp:</strong> +254 701 929 704</p>
-                <p><strong>Email:</strong> <a href="mailto:info@havenstay.co.ke">info@havenstay.co.ke</a></p>
-              </div>
-              
-              <!-- Newsletter Signup Section -->
-              <div class="col-md-3 mb-5">
-                <h5>Newsletter</h5>
-                <p>Sign up for our newsletter</p>
-                <form action="#" class="footer-newsletter">
-                  <div class="form-group">
-                    <input
-                      type="email"
-                      class="form-control"
-                      placeholder="Your email..."
-                      required
-                    />
-                    <button type="submit" class="btn">
-                      <span class="fa fa-paper-plane"></span>
-                      <span class="sr-only">Submit</span>
-                    </button>
+    <footer class="section footer-section bg-dark text-light py-5 footer-font">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3 mb-4 mb-md-0">
+                  <h5 class="text-uppercase mb-4 font-weight-bold footer-heading">Haven Stay</h5>
+                  <p class="mb-3">Experience luxury and comfort at Haven Stay. Your home away from home.</p>
+                  <div class="social-icons">
+                      <a href="#" class="text-light mr-3" aria-label="Facebook"><i class="fa fa-facebook-square fa-2x"></i></a>
+                      <a href="#" class="text-light mr-3" aria-label="Twitter"><i class="fa fa-twitter-square fa-2x"></i></a>
+                      <a href="#" class="text-light mr-3" aria-label="Instagram"><i class="fa fa-instagram fa-2x"></i></a>
+                      <a href="#" class="text-light" aria-label="LinkedIn"><i class="fa fa-linkedin-square fa-2x"></i></a>
                   </div>
-                </form>
               </div>
-            </div>
-            
-            <!-- Footer Bottom Section -->
-            <div class="row bordertop pt-5">
-              <p class="col-md-6 text-left">
-                &copy; <script>document.write(new Date().getFullYear());</script> Haven Stay Hotel Ltd. All Rights Reserved. <a href="#">Privacy Policy</a>
-              </p>
               
-              <p class="col-md-6 text-right social">
-                <a href="#" aria-label="Facebook"><span class="fa fa-facebook"></span></a>
-                <a href="#" aria-label="Twitter"><span class="fa fa-twitter"></span></a>
-              </p>
-            </div>
+              <div class="col-md-3 mb-4 mb-md-0">
+                  <h5 class="text-uppercase mb-4 font-weight-bold footer-heading">Quick Links</h5>
+                  <ul class="list-unstyled">
+                      <li class="mb-2"><a href="{{ url_for('guest.about')}}" class="text-light">About Us</a></li>
+                      <li class="mb-2"><a href="{{ url_for('guest.hotel')}}" class="text-light">Rooms & Bookings</a></li>
+                      <li class="mb-2"><a href="{{ url_for('guest.reservation')}}" class="text-light">Dining & Reservations</a></li>
+                      <li class="mb-2"><a href="{{ url_for('guest.reservation')}}" class="text-light">Meetings & Events</a></li>
+                      <li class="mb-2"><a href="{{ url_for('guest.contact')}}" class="text-light">Contact Us</a></li>
+                  </ul>
+              </div>
+              
+              <div class="col-md-3 mb-4 mb-md-0">
+                  <h5 class="text-uppercase mb-4 font-weight-bold footer-heading">Contact Info</h5>
+                  <p><i class="fa fa-map-marker mr-2"></i> Off Elgonview Road, Eldoret City</p>
+                  <p><i class="fa fa-phone mr-2"></i> +254 701 929 704</p>
+                  <p><i class="fa fa-envelope mr-2"></i> <a href="mailto:info@havenstay.co.ke" class="text-light">info@havenstay.co.ke</a></p>
+                  <p><i class="fa fa-whatsapp mr-2"></i> +254 701 929 704</p>
+              </div>
+              
+              <div class="col-md-3">
+                  <h5 class="text-uppercase mb-4 font-weight-bold footer-heading">Newsletter</h5>
+                  <p class="mb-3">Stay updated with our latest offers and news</p>
+                  <form action="#" class="footer-newsletter">
+                      <div class="input-group mb-3">
+                          <input type="email" class="form-control" placeholder="Your email" aria-label="Your email" required>
+                          <div class="input-group-append">
+                              <button class="btn btn-primary" type="submit">
+                                  <i class="fa fa-paper-plane"></i>
+                              </button>
+                          </div>
+                      </div>
+                  </form>
+              </div>
           </div>
-    </footer>
+      </div>
+      <div class="container-fluid mt-4 pt-4 border-top border-secondary">
+          <div class="row">
+              <div class="col-md-6 text-center text-md-left">
+                  <p>&copy; <script>document.write(new Date().getFullYear());</script> Haven Stay Hotel Ltd. All Rights Reserved.</p>
+              </div>
+              <div class="col-md-6 text-center text-md-right">
+                  <a href="#" class="text-light">Privacy Policy</a> | <a href="#" class="text-light">Terms of Service</a>
+              </div>
+          </div>
+      </div>
+  </footer>
 
     <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>

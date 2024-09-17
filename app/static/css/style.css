@@ -853,7 +853,7 @@ textarea.form-control {
 }
 
 .footer-section {
-  background: #663818;
+  background-color: #663818;
   color: #fff;
 }
 
@@ -1052,4 +1052,128 @@ textarea.form-control {
   background: #dc3545;
   -webkit-box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 2px 7px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+/* Added footer */
+/* 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+.footer-font {
+    font-family: 'Raleway', sans-serif;
+}
+
+.footer-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.footer-section {
+    font-size: 0.9rem;
+    background: #663818;
+  color: #fff;
+}
+
+.footer-section h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.footer-section .social-icons a:hover {
+    opacity: 0.8;
+}
+
+.footer-newsletter .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.footer-newsletter .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.footer-newsletter .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+}
+
+.footer-newsletter .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+} */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap');
+
+.footer-font {
+    font-family: 'Raleway', sans-serif;
+}
+
+.footer-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.footer-section {
+    font-size: 0.9rem;
+    background: linear-gradient(135deg, #4c2a1c 0%, #8b4513 100%);
+    color: #ffffff;
+}
+
+.footer-section h5 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.footer-section .social-icons a {
+    color: #ffffff;
+    transition: opacity 0.3s ease;
+}
+
+.footer-section .social-icons a:hover {
+    opacity: 0.8;
+}
+
+.footer-section a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+.footer-newsletter .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+}
+
+.footer-newsletter .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-newsletter .btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-newsletter .btn-primary:hover {
+    background-color: #357abd;
+    border-color: #357abd;
+}
+
+.footer-section .container-fluid {
+    border-color: rgba(255, 255, 255, 0.1);
 }

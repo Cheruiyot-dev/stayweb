@@ -13,6 +13,11 @@ guest_bp = Blueprint('guest', __name__, template_folder='../templates')
 def index():
     return render_template('guest/index.html')
 
+
+@guest_bp.route('/gallery')
+def gallery():
+    return render_template('guest/gallery.html')
+
 @guest_bp.route('/about')
 def about():
     return render_template('guest/about.html')

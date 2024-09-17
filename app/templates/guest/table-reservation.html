@@ -1,23 +1,33 @@
 {% extends "guest/base.html" %}
 {% block title %}Haven Stay - Table Reservation{% endblock %}
+
 {% block content %}
+    <!-- Hero Section -->
     <section class="site-hero overlay" style="background-image: url('/static/img/hero_image.jpg')">
         <div class="container">
             <div class="row site-hero-inner justify-content-center align-items-center">
                 <div class="col-md-10 text-center">
                     <h1 class="heading">Table Reservation</h1>
+                    <p class="lead text-white mt-2">Secure your spot at our premium dining experience</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Reservation Form Section -->
     <section class="section bg-light">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 mb-5">
-                    <div class="bg-white p-md-5 p-4 mb-5 border">
-                        <h3 class="mb-4">Reserve Your Table</h3>
-                        <form action=" {{ url_for('guest.confirm_table_reservation')}} " method="post">
+                    <div class="bg-white p-md-5 p-4 mb-5 border rounded shadow-sm">
+                        <h3 class="mb-4 text-center">Reserve Your Table</h3>
+                        <p class="text-muted text-center mb-4">
+                            Please fill out the form below to book your table. We offer dining experiences in our <strong>Main Hotel Area</strong>, 
+                            the <strong>In door Bar</strong>, or our serene <strong>River Lounge</strong>.
+                        </p>
+
+                        <form action="{{ url_for('guest.table_reservation') }}" method="post">
+                            <!-- User Information -->
                             <div class="row">
                                 <div class="col-md-6 form-group">
                                     <label for="full_name">Full Name</label>
@@ -52,6 +62,8 @@
                                 <label for="special_requests">Special Requests</label>
                                 <textarea id="special_requests" name="special_requests" class="form-control" rows="3" placeholder="Any special requests or requirements"></textarea>
                             </div>
+
+                            <!-- Submit & Cancel Buttons -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <button type="submit" class="btn btn-primary text-white py-3 px-5 font-weight-bold">Reserve Table</button>
@@ -61,6 +73,84 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dining Area Descriptions Section -->
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="bg-white p-md-4 p-3 border rounded shadow-sm">
+                        <h4>Main Dining Room</h4>
+                        <p class="text-muted">
+                            Enjoy our chef's finest creations in a warm, elegant setting. The Main Dining Room offers a refined yet cozy ambiance 
+                            perfect for special occasions or casual dining. Seating available for up to 20 guests per reservation.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-white p-md-4 p-3 border rounded shadow-sm">
+                        <h4>Bar</h4>
+                        <p class="text-muted">
+                            Relax at our sophisticated Bar with crafted cocktails, an extensive wine list, and light bites. Ideal for more 
+                            intimate or informal gatherings. Enjoy our signature drinks and tapas menu in a lively, social atmosphere.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bg-white p-md-4 p-3 border rounded shadow-sm">
+                        <h4>River Lounge</h4>
+                        <p class="text-muted">
+                            Soak in the serenity of our River Lounge with tranquil views of the flowing river. This space is perfect for a more 
+                            relaxed dining experience, offering a peaceful environment for unwinding or catching up with friends. 
+                            Reservations for up to 15 guests are available in this area.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information Section -->
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="bg-white p-md-4 p-3 border rounded shadow-sm">
+                        <h4>Reservation Policy</h4>
+                        <p class="text-muted">
+                            Reservations are held for 15 minutes past the reserved time. If you are running late, kindly call us. 
+                            We will do our best to accommodate, but tables may be released after the grace period.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-white p-md-4 p-3 border rounded shadow-sm">
+                        <h4>Restaurant Hours</h4>
+                        <ul class="list-unstyled text-muted">
+                            <li>Monday - Friday: 11:00 AM - 10:00 PM</li>
+                            <li>Saturday: 11:00 AM - 11:00 PM</li>
+                            <li>Sunday: 10:00 AM - 9:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ and Contact Info -->
+            <div class="row mt-5">
+                <div class="col-md-6">
+                    <div class="bg-white p-md-4 p-3 border rounded shadow-sm">
+                        <h4>Frequently Asked Questions</h4>
+                        <ul class="list-unstyled text-muted">
+                            <li><strong>Can I modify my reservation?</strong> Yes, you can modify your reservation up to 24 hours before the reservation time.</li>
+                            <li><strong>Do you have parking?</strong> Yes, complimentary valet parking is available.</li>
+                            <li><strong>Is the restaurant wheelchair accessible?</strong> Yes, our restaurant is fully accessible.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-white p-md-4 p-3 border rounded shadow-sm">
+                        <h4>Contact Us</h4>
+                        <p class="text-muted">
+                            <i class="fa fa-phone"></i> +254 712 345678 <br>
+                            <i class="fa fa-envelope"></i> reservations@havenstay.com
+                        </p>
                     </div>
                 </div>
             </div>

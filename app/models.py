@@ -18,7 +18,7 @@ class Guest(db.Model):
 
     # Relationships
     bookings = db.relationship('Booking', back_populates='guest', lazy='select', cascade='all, delete-orphan')
-    table_reservations = db.relationship('TableReservation', back_populates='guest', lazy='select', cascade='all, delete-orphan')
+
 
     # Email Validation
     @validates('email')
@@ -120,8 +120,7 @@ class Table(db.Model):
     location = db.Column(db.String(50))
     is_available = db.Column(db.Boolean, default=True, nullable=False)
 
-    # Relationships
-    reservations = db.relationship('TableReservation', back_populates='table', lazy='select', cascade='all, delete-orphan')
+   
 
     def __repr__(self):
         return f'<Table {self.table_number} - Capacity: {self.capacity}>'
@@ -131,30 +130,18 @@ class TableReservation(db.Model):
     __tablename__ = 'table_reservations'
     
     id = db.Column(db.Integer, primary_key=True)
+    full_name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), nullable=False)
+    phone_number = db.Column(db.String(20), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
-    
-    table_id = db.Column(db.Integer, db.ForeignKey('tables.id'), nullable=False)
-    guest_id = db.Column(db.Integer, db.ForeignKey('guests.id'), nullable=False)
-    
     reservation_date = db.Column(db.DateTime, nullable=False)
     number_of_guests = db.Column(db.Integer, nullable=False)
-    status = db.Column(db.Enum(BookingStatus), default=BookingStatus.PENDING, nullable=False)
     special_requests = db.Column(db.Text)
 
-    # Relationships
-    table = db.relationship('Table', back_populates='reservations')
-    guest = db.relationship('Guest', back_populates='table_reservations')
+  
 
-    # Number of Guests Validation
-    @validates('number_of_guests')
-    def validate_number_of_guests(self, key, number_of_guests):
-        if number_of_guests > self.table.capacity:
-            raise ValueError("Number of guests exceeds table capacity")
-        return number_of_guests
 
-    def __repr__(self):
-        return f'<TableReservation {self.id} - Table {self.table.table_number} - Guest {self.guest.name}>'
 
 # Payment Method Enum
 class PaymentMethod(Enum):

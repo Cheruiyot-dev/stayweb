@@ -1,17 +1,17 @@
-{% extends "guest/base.html" %} {% block title %}Haven Stay - Gallery{% endblock %}
+{% extends "guest/base.html" %} {% block title %}Haven Stay - gallary{% endblock %}
 {% block content %}
 
 <section
   class="site-hero overlay page-inside"
-  style="background-image: url({{ url_for('static', filename='img/standard1.jpg') }})"
+  style="background-image: url({{ url_for('static', filename='img/havenhp3.jpg') }})"
 >
   <div class="container">
     <div class="row site-hero-inner justify-content-center align-items-center">
       <div class="col-md-10 text-center">
-        <h1 class="heading" data-aos="fade-up">Gallery</h1>
-        <!-- <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="heading" data-aos="fade-up">Our Gallary</h1>
+        <p class="sub-heading mb-5" data-aos="fade-up" data-aos-delay="100">
             Browse through our collection of moments from past events and our Services
-        </p> -->
+        </p>
       </div>
     </div>
   </div>
@@ -26,7 +26,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 mb-5" data-aos="fade-up">
-        <h2 class="mb-4">In door Gallery</h2>
+        <h2 class="mb-4">In-door Bar Gallery</h2>
       </div>
     </div>
     <div class="row">
@@ -37,7 +37,7 @@
           data-title="Standard Room - Bedroom"
         >
           <img
-            src="{{ url_for('static', filename='img/deluxe4.jpeg') }}"
+            src="{{ url_for('static', filename='img/bar hp.jpg') }}"
             alt="Standard Room - Bedroom"
             class="img-fluid rounded"
           />
@@ -50,7 +50,7 @@
           data-title="Standard Room - Bathroom"
         >
           <img
-            src="{{ url_for('static', filename='img/deluxe5.jpeg') }}"
+            src="{{ url_for('static', filename='img/Coffee2.jpg') }}"
             alt="Standard Room - Bathroom"
             class="img-fluid rounded"
           />
@@ -63,7 +63,7 @@
           data-title="Standard Room - Work Area"
         >
           <img
-            src="{{ url_for('static', filename='img/deluxe3.jpeg') }}"
+            src="{{ url_for('static', filename='img/slider1.jpg') }}"
             alt="Standard Room - Work Area"
             class="img-fluid rounded"
           />
@@ -90,7 +90,7 @@
             data-title="Standard Room - Bedroom"
           >
             <img
-              src="{{ url_for('static', filename='img/deluxe4.jpeg') }}"
+              src="{{ url_for('static', filename='img/reservation.jpg') }}"
               alt="Standard Room - Bedroom"
               class="img-fluid rounded"
             />
@@ -103,7 +103,7 @@
             data-title="Standard Room - Bathroom"
           >
             <img
-              src="{{ url_for('static', filename='img/deluxe5.jpeg') }}"
+              src="{{ url_for('static', filename='img/reservation2.jpg') }}"
               alt="Standard Room - Bathroom"
               class="img-fluid rounded"
             />
@@ -116,7 +116,7 @@
             data-title="Standard Room - Work Area"
           >
             <img
-              src="{{ url_for('static', filename='img/deluxe3.jpeg') }}"
+              src="{{ url_for('static', filename='img/havenhp3.jpg') }}"
               alt="Standard Room - Work Area"
               class="img-fluid rounded"
             />
@@ -132,7 +132,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 mb-5" data-aos="fade-up">
-          <h2 class="mb-4">Restaurant & Coffee Lounge Gallery</h2>
+          <h2 class="mb-4">Restaurant & Coffee Lounge Gallary</h2>
         </div>
       </div>
       <div class="row">
@@ -143,7 +143,7 @@
             data-title="Standard Room - Bedroom"
           >
             <img
-              src="{{ url_for('static', filename='img/deluxe4.jpeg') }}"
+              src="{{ url_for('static', filename='img/haven6.jpg') }}"
               alt="Standard Room - Bedroom"
               class="img-fluid rounded"
             />
@@ -156,7 +156,7 @@
             data-title="Standard Room - Bathroom"
           >
             <img
-              src="{{ url_for('static', filename='img/deluxe5.jpeg') }}"
+              src="{{ url_for('static', filename='img/reservation3.jpg') }}"
               alt="Standard Room - Bathroom"
               class="img-fluid rounded"
             />
@@ -169,7 +169,60 @@
             data-title="Standard Room - Work Area"
           >
             <img
-              src="{{ url_for('static', filename='img/deluxe3.jpeg') }}"
+              src="{{ url_for('static', filename='img/meeting4.jpg') }}"
+              alt="Standard Room - Work Area"
+              class="img-fluid rounded"
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End of Room Picture Gallery Section -->
+
+  <!-- Room Picture Gallery Section -->
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-5" data-aos="fade-up">
+          <h2 class="mb-4">Meetings & Events</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mb-4" data-aos="fade-up">
+          <a
+            href="/api/placeholder/800/600"
+            data-lightbox="room-gallery"
+            data-title="Standard Room - Bedroom"
+          >
+            <img
+              src="{{ url_for('static', filename='img/meeting3.jpg') }}"
+              alt="Standard Room - Bedroom"
+              class="img-fluid rounded"
+            />
+          </a>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <a
+            href="/api/placeholder/800/600"
+            data-lightbox="room-gallery"
+            data-title="Standard Room - Bathroom"
+          >
+            <img
+              src="{{ url_for('static', filename='img/meetings2.jpg') }}"
+              alt="Standard Room - Bathroom"
+              class="img-fluid rounded"
+            />
+          </a>
+        </div>
+        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <a
+            href="/api/placeholder/800/600"
+            data-lightbox="room-gallery"
+            data-title="Standard Room - Work Area"
+          >
+            <img
+              src="{{ url_for('static', filename='img/slider2.jpg') }}"
               alt="Standard Room - Work Area"
               class="img-fluid rounded"
             />
@@ -184,7 +237,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 mb-5" data-aos="fade-up">
-          <h2 class="mb-4">Rooms Gallery</h2>
+          <h2 class="mb-4">Rooms Gallary</h2>
         </div>
       </div>
       <div class="row">

@@ -105,6 +105,8 @@ textarea.form-control {
   font-weight: bold;
   line-height: 1;
   font-family: "Playfair+Display", times, serif;
+  text-align: center; /* Center the text within its column */
+  flex: 1; /* Takes up space and keeps the logo centered */
 }
 
 .site-navbar {
@@ -142,7 +144,7 @@ textarea.form-control {
   height: 50%;
   width: 0%;
   z-index: -1;
-  background: #6e3d1a;
+  /**background: #6e3d1a;**/
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;

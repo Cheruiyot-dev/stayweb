@@ -36,11 +36,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Hide Gallery on mobile (display only on larger screens) -->
+                    <!-- Hide Gallery on mobile (display only on larger screens) 
                     <div class="d-inline-block site-logo d-none d-md-inline-block">
                         <a href="{{ url_for('guest.gallery')}}">Gallery</a>
-                    </div>
-                </div>
+                    </div> ---->
+                </div>  
 
                 <div class="col-3 text-right">
                     <div class="site-menu-toggle js-site-menu-toggle" data-aos="fade">
@@ -48,9 +48,9 @@
                         <span></span>
                         <span></span>
                     </div>
-                </div>
+                </div>  
             </div>
-        </div>
+        </div>  
         
         <div class="site-navbar js-site-navbar">
             <nav role="navigation">
@@ -62,10 +62,11 @@
                                 <li><a href="{{ url_for('guest.hotel')}}">Rooms & Bookings</a></li>
                                 <li><a href="{{ url_for('guest.reservation')}}">Bar & Reservations</a></li>
                                 <li><a href="{{ url_for('guest.meetings_events')}}">Meetings & Events</a></li>
+                                <li><a href="{{ url_for('guest.gallery')}}">Gallery</a></li>
                                 <li><a href="{{ url_for('guest.contact')}}">Contact us</a></li>
                                 <li><a href="{{ url_for('guest.about')}}">About</a></li>
                                 <!-- Gallery link visible only in the menu on small devices -->
-                                <li class="d-md-none"><a href="{{ url_for('guest.gallery')}}">Gallery</a></li>
+                                <!--<li class="d-md-none"><a href="{{ url_for('guest.gallery')}}">Gallery</a></li>  -->
                             </ul>
                         </div>
                         <div class="col-md-6 extra-info">

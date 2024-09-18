@@ -130,7 +130,7 @@ textarea.form-control {
 
 .site-navbar nav .menu li a {
   color: #000;
-  font-size: 30px;
+  font-size: 20px;
   padding: 5px 10px;
   position: relative;
 }
@@ -142,7 +142,7 @@ textarea.form-control {
   height: 50%;
   width: 0%;
   z-index: -1;
-  background: #e61c5d;
+  background: #6e3d1a;
   -webkit-transition: .3s all ease-in-out;
   -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;
